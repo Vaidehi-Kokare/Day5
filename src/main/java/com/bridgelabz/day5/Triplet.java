@@ -1,20 +1,30 @@
 package com.bridgelabz.day5;
 
-import java.util.Scanner;
+public class Triplet {
+    static void findTriplet(int[] Numbers) {
+        boolean found = false;
+        for (int i = 0; i < Numbers.length - 2; i++) {
+            for (int j = i + 1; i < Numbers.length - 1; i++) {
+                for (int k = j+1; k < Numbers.length; k++) {
+                    if (Numbers[i] + Numbers[j] + Numbers[k] == 0) {
+                        System.out.println(Numbers[i] + " " + Numbers[j] + " " + Numbers[k]);
 
-public class LargestOf3 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter three numbers");
-        int num1 = scanner.nextInt();
-        int num2 = scanner.nextInt();
-        int num3 = scanner.nextInt();
-        int max = num1;
-        if (num2 > max) {
-            max = num2;
-        } else if (num3 > max) {
-            max = num3;
+                        found = true;
+
+                    }
+                }
+            }
         }
-        System.out.println("Largest number of the three is " + max);
+
+        if (found == false)
+            System.out.println("Triplet does not exist");
     }
+
+    public static void main(String[] args) {
+
+        int[] Numbers = { 0, -1, 2, -3, 1, 4 };
+        findTriplet(Numbers);
+
+    }
+
 }
